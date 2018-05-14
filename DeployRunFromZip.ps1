@@ -60,7 +60,7 @@ $SASToken = New-AzureStorageBlobSASToken -Container $containerName -Blob $blobNa
 
 Write-Verbose "Setting Azure Function application setting"
 $settings = @{
-    "WEBSITE_USE_ZIP" = ("{0}{1}/{2}{3}" -f $blobContext.BlobEndPoint, $containerName, $blobName, $SASToken)
+    "WEBSITE_RUN_FROM_ZIP" = ("{0}{1}/{2}{3}" -f $blobContext.BlobEndPoint, $containerName, $blobName, $SASToken)
 }
 
 $null = Add-FunctionAppSetting $FunctionAppName $FunctionAppResourceGroupName $settings
