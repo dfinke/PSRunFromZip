@@ -43,7 +43,7 @@ function Add-FunctionAppSetting {
 }
 
 Write-Verbose "Checking login"
-if ((Get-AzureRmContext).Tenant -eq $null) {
+if ($null -eq (Get-AzureRmContext).Tenant) {
     $null = Login-AzAccount
 }
 
